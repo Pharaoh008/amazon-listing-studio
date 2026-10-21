@@ -20,7 +20,7 @@ python app.py
 
 GitHub Pages 前端地址：<https://pharaoh008.github.io/amazon-listing-studio/>
 
-GitHub Pages 只托管静态前端，完整生成流程仍需要部署 Python 服务。仓库已包含 `render.yaml`，连接 GitHub 仓库后可使用 Render Web Service。拿到后端公网地址后，将 `config.js` 中的 `window.COPYCRAFT_API_BASE` 改为该地址并推送，Pages 会自动重新发布。
+GitHub Pages 只托管静态前端。当前生产 API 已部署到 Vercel：`https://amazon-listing-studio-api.vercel.app`，前端通过 `config.js` 连接它；本地 Python 服务仍可用 `python app.py` 运行。仓库也保留了 `render.yaml`，便于迁移到 Render。
 
 部署环境变量：
 
