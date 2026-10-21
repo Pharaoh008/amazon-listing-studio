@@ -5,10 +5,13 @@
 !app.py
 !app.js
 !config.js
+!api/
+!api/**/*.js
 !index.html
 !styles.css
 !package.json
 !render.yaml
+!vercel.json
 !requirements.txt
 !data/
 !data/settings/
