@@ -1,0 +1,2 @@
+import {body,send,settings,seller} from '../_shared.js';
+export default async function handler(req,res){if(req.method==='OPTIONS'){res.status(204).end();return}if(req.method!=='POST'){send(res,405,{error:'method not allowed'});return}try{const p=await body(req),s=settings(),value=p.sellersprite_url||s.sellersprite_url;if(!value){send(res,400,{ok:false,message:'请配置卖家精灵 MCP URL 密钥。'});return}const result=await seller(value,'US',[]);send(res,result.ok?200:502,{ok:result.ok,message:result.ok?'卖家精灵 MCP 已连接。':result.note})}catch(e){send(res,500,{ok:false,message:e.message})}}
