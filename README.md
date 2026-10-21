@@ -18,7 +18,9 @@ python app.py
 
 ## 部署
 
-GitHub 负责保存代码，Python 服务需要部署到 Render、Railway、Fly.io 或自己的服务器。仓库已包含 `render.yaml`，连接 GitHub 仓库后可直接使用 Render Web Service。
+GitHub Pages 前端地址：<https://pharaoh008.github.io/amazon-listing-studio/>
+
+GitHub Pages 只托管静态前端，完整生成流程仍需要部署 Python 服务。仓库已包含 `render.yaml`，连接 GitHub 仓库后可使用 Render Web Service。拿到后端公网地址后，将 `config.js` 中的 `window.COPYCRAFT_API_BASE` 改为该地址并推送，Pages 会自动重新发布。
 
 部署环境变量：
 
