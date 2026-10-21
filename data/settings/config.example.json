@@ -1,0 +1,6 @@
+{
+  "sellersprite_url": "",
+  "minimax_key": "",
+  "minimax_base_url": "https://api.minimaxi.com/v1/chat/completions",
+  "minimax_model": "MiniMax-M3"
+}

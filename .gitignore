@@ -1,0 +1,24 @@
+# Publish only the listing studio files from this shared workspace.
+*
+!.gitignore
+!README.md
+!app.py
+!app.js
+!index.html
+!styles.css
+!package.json
+!render.yaml
+!requirements.txt
+!data/
+!data/settings/
+!data/settings/config.example.json
+!\.github/
+!\.github/workflows/
+!\.github/workflows/ci.yml
+
+# Local secrets and generated task data
+data/settings/config.json
+data/tasks/
+data/reports/
+data/uploads/
+data/**/*.log

@@ -1,0 +1,1 @@
+# Copycraft uses Python's standard library only.

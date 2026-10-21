@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Copycraft · Amazon Listing Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="studio">
+    <header class="topbar">
+      <a class="brand" href="/"><span class="brand-mark">c/</span><span class="brand-name">copycraft</span><span class="brand-sub">AMAZON LISTING STUDIO</span></a>
+      <div class="topbar-right"><span class="service-state"><i></i><b id="healthText">本地服务就绪</b></span><span class="model-chip" id="modelChip">MINIMAX-M3</span><button class="icon-button" id="settingsBtn" aria-label="打开设置">⚙</button></div>
+    </header>
+    <main class="main">
+      <section class="workspace-head"><div><div class="overline">WORKSPACE / LISTING COPY</div><h1>把产品事实，整理成能上线的文案。</h1></div><div class="head-note"><span class="signal-dot"></span><span>事实优先 · 关键词可追溯 · 结果可校验</span></div></section>
+      <section class="workflow" aria-label="生成流程"><div class="workflow-track"><span id="workflowFill"></span></div><div class="workflow-step active"><b>01</b><span>资料</span></div><div class="workflow-step"><b>02</b><span>事实核对</span></div><div class="workflow-step"><b>03</b><span>关键词</span></div><div class="workflow-step"><b>04</b><span>文案</span></div><div class="workflow-step"><b>05</b><span>校验</span></div><span class="workflow-status" id="taskStatus">READY</span></section>
+      <section class="workbench">
+        <aside class="input-rail">
+          <div class="rail-heading"><span>INPUT</span><strong>产品资料</strong><em id="imageCount">0 / 8</em></div>
+          <label class="image-drop" id="dropzone"><input id="images" type="file" accept="image/jpeg,image/png,image/webp" multiple hidden><div id="dropEmpty" class="drop-empty"><span class="upload-icon">＋</span><strong>添加产品图</strong><small>拖拽 · 点击 · 最多 8 张</small></div><div id="thumbs" class="thumbs" hidden></div></label>
+          <div class="field-stack"><label>产品名称<input id="productName" placeholder="例如：USB C Hub"></label><div class="field-row"><label>品牌<input id="brand" placeholder="可留空"></label><label>类目<input id="category" placeholder="Computer Accessories"></label></div><label>材质 / 尺寸 / 颜色<input id="specs" placeholder="例如：Aluminum · 100 cm"></label><label>已确认功能与限制<textarea id="features" rows="5" placeholder="只填写可被参数或图片证明的事实"></textarea></label><label>目标受众<input id="audience" placeholder="例如：MacBook 用户"></label><label>重点卖点 / 禁用声明<textarea id="preferences" rows="3" placeholder="可选"></textarea></label></div>
+          <div class="target-row"><span>目标站点</span><select id="marketplace"><option value="US">🇺🇸 美国 · US</option><option value="CA">🇨🇦 加拿大 · CA</option><option value="UK">🇬🇧 英国 · UK</option><option value="DE">🇩🇪 德国 · DE</option><option value="FR">🇫🇷 法国 · FR</option><option value="IT">🇮🇹 意大利 · IT</option><option value="ES">🇪🇸 西班牙 · ES</option><option value="JP">🇯🇵 日本 · JP</option><option value="AU">🇦🇺 澳大利亚 · AU</option><option value="AE">🇦🇪 阿联酋 · AE</option><option value="IN">🇮🇳 印度 · IN</option><option value="MX">🇲🇽 墨西哥 · MX</option><option value="BR">🇧🇷 巴西 · BR</option></select><input id="language" value="English" hidden></div>
+          <label class="asin-field">竞品 ASIN <textarea id="asins" rows="2" placeholder="每行一个，建议 3–5 个"></textarea><span id="asinStatus">等待输入</span></label>
+        </aside>
+        <section class="compose-pane"><div class="compose-top"><span class="eyebrow">COPYCRAFT / 01</span><span class="mode-label">EVIDENCE LED</span></div><div class="compose-title"><span class="title-index">A</span><div><h2>Listing Copy</h2><p>从确认事实出发，完成一套可复核的 Amazon 文案。</p></div></div><div class="brief-card"><div><span class="brief-label">CURRENT BRIEF</span><strong id="briefProduct">等待产品名称</strong><small id="briefMarket">Amazon US · English</small></div><span class="brief-mark">↗</span></div><div class="option-block"><div class="option-head"><span>生成模块</span><small>可多选</small></div><div class="chips"><button class="content-chip selected">✓ Title</button><button class="content-chip selected">✓ Highlights</button><button class="content-chip selected">✓ Bullets</button><button class="content-chip selected">✓ Description</button><button class="content-chip">Search Terms</button></div></div><div class="option-block tone-block"><div class="option-head"><span>品牌语气</span><small>输出语言跟随站点</small></div><select id="tone"><option>清晰专业</option><option>温暖生活化</option><option>高级简约</option><option>直接转化</option></select></div><div class="generation-note"><span class="scan-line"></span><span>生成过程中会显示事实来源、关键词命中和校验状态。</span></div><button class="primary" id="runBtn"><span class="primary-icon">↗</span><span>生成文案</span><b>⌘ ↵</b></button></section>
+        <section class="result-panel"><div class="result-head"><div><span class="eyebrow">OUTPUT / LIVE</span><h2>生成结果</h2></div><button class="ghost small" id="downloadBtn" disabled>下载报告 ↓</button></div><div class="progress"><div id="progressBar"></div></div><div class="stage-list" id="stageList"><div class="stage current"><i></i><span>等待提交产品资料</span><em>—</em></div><div class="stage"><i></i><span>图片事实核对</span><em>—</em></div><div class="stage"><i></i><span>竞品与关键词分析</span><em>—</em></div><div class="stage"><i></i><span>生成并校验文案</span><em>—</em></div></div><div class="log" id="log"><span class="log-time">SYSTEM</span><span>准备接收产品资料。</span></div><div class="output-wrap"><div id="emptyOutput" class="empty-output"><span class="empty-mark">c/</span><strong>运行一次，查看可上线草稿</strong><small>关键词会在文案中加粗显示。</small></div><div id="output" hidden></div></div></section>
+      </section>
+      <footer><span>本地优先 · 密钥只在 Python 服务端使用</span><span id="providerText">MiniMax / SellerSprite MCP</span></footer>
+    </main>
+  </div>
+  <div class="modal" id="settingsModal" hidden><div class="modal-box"><div class="modal-head"><div><span class="eyebrow">SYSTEM / SETTINGS</span><h2>连接设置</h2></div><button class="close" id="closeSettings">×</button></div><p class="modal-copy">配置保存在本机 <code>data/settings</code>，浏览器不会直接访问外部服务。</p><label>卖家精灵 MCP URL 密钥<input id="sellerUrl" type="password" placeholder="粘贴 URL 密钥"></label><button class="outline" id="testSeller">测试卖家精灵连接</button><label>MiniMax API Key<input id="miniKey" type="password" placeholder="留空则保持原值"></label><label>MiniMax Base URL<input id="miniBase" value="https://api.minimaxi.com/v1"></label><label>模型名<input id="miniModel" value="MiniMax-M3"></label><button class="outline" id="testMini">测试 MiniMax 连接</button><div class="setting-status" id="settingStatus"></div><button class="primary" id="saveSettings">保存设置</button></div></div>
+  <script src="/app.js"></script>
+</body>
+</html>
