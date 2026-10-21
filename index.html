@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
   <div class="studio">
@@ -33,6 +33,7 @@
     </main>
   </div>
   <div class="modal" id="settingsModal" hidden><div class="modal-box"><div class="modal-head"><div><span class="eyebrow">SYSTEM / SETTINGS</span><h2>连接设置</h2></div><button class="close" id="closeSettings">×</button></div><p class="modal-copy">配置保存在本机 <code>data/settings</code>，浏览器不会直接访问外部服务。</p><label>卖家精灵 MCP URL 密钥<input id="sellerUrl" type="password" placeholder="粘贴 URL 密钥"></label><button class="outline" id="testSeller">测试卖家精灵连接</button><label>MiniMax API Key<input id="miniKey" type="password" placeholder="留空则保持原值"></label><label>MiniMax Base URL<input id="miniBase" value="https://api.minimaxi.com/v1"></label><label>模型名<input id="miniModel" value="MiniMax-M3"></label><button class="outline" id="testMini">测试 MiniMax 连接</button><div class="setting-status" id="settingStatus"></div><button class="primary" id="saveSettings">保存设置</button></div></div>
-  <script src="/app.js"></script>
+  <script src="./config.js"></script>
+  <script src="./app.js"></script>
 </body>
 </html>

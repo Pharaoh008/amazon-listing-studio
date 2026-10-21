@@ -4,6 +4,7 @@
 !README.md
 !app.py
 !app.js
+!config.js
 !index.html
 !styles.css
 !package.json
@@ -15,6 +16,7 @@
 !\.github/
 !\.github/workflows/
 !\.github/workflows/ci.yml
+!\.github/workflows/pages.yml
 
 # Local secrets and generated task data
 data/settings/config.json
