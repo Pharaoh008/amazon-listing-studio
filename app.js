@@ -6,6 +6,7 @@ function asinCheck(){const a=[...new Set($('asins').value.toUpperCase().split(/[
 $('asins').addEventListener('input',asinCheck);
 function updateBrief(){const name=$('productName').value.trim();const market=$('marketplace').value;$('briefProduct').textContent=name||'等待产品名称';$('briefMarket').textContent=`Amazon ${market} · ${$('language').value||'English'}`}
 $('productName').addEventListener('input',updateBrief);$('marketplace').addEventListener('change',updateBrief);
+document.querySelectorAll('.content-chip').forEach(button=>button.addEventListener('click',()=>button.classList.toggle('selected')));
 const dz=$('dropzone'),input=$('images');
 function renderFiles(){$('imageCount').textContent=`${files.length} / 8`;$('dropEmpty').hidden=files.length>0;$('thumbs').hidden=!files.length;$('thumbs').innerHTML=files.map((f,i)=>`<img class="thumb" title="${esc(f.name)} · 点击删除" src="${URL.createObjectURL(f)}" data-i="${i}">`).join('')}
 function addFiles(list){files=[...files,...list].filter((f,i,a)=>i<8&&a.findIndex(x=>x.name===f.name&&x.size===f.size)===i);renderFiles()}
@@ -27,3 +28,4 @@ $('saveSettings').onclick=async()=>{const body={sellersprite_url:$('sellerUrl').
 async function test(kind){$('settingStatus').textContent='测试中…';const body=kind==='sellersprite'?{sellersprite_url:$('sellerUrl').value}:{minimax_key:$('miniKey').value,minimax_base_url:$('miniBase').value,minimax_model:$('miniModel').value};const r=await fetch(`/api/settings/test-${kind}`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});const d=await r.json();$('settingStatus').textContent=d.message||d.error||'测试完成'}$('testSeller').onclick=()=>test('sellersprite');$('testMini').onclick=()=>test('minimax');
 async function hydrateLatest(){try{const s=await (await fetch('/api/tasks/latest')).json();if(s.status==='completed'&&s.result){taskId=s.task_id;renderOutput(s.result);$('taskStatus').textContent='DONE';setStage(4);log('已载入最近一次生成结果。')}}catch(e){}}
 updateBrief();hydrateLatest();
+document.addEventListener('keydown',event=>{if((event.metaKey||event.ctrlKey)&&event.key==='Enter'){event.preventDefault();run()}});
